@@ -13,11 +13,11 @@ const StyledButton = styled.button<ButtonProps>`
     border-radius: 3px;
     display: inline-block;
     padding: ${props => props.size === "small"? "7px 25px 8px" : (props.size === "medium"? "9px 30px 11px" : "14px 30px 16px" )};
-    color: ${props => props.primary? "#1b116e":"#ffffff"};
-    background-color: ${props => props.primary ? "#6bedb5":"#1b116e"};
+    color: ${props => props.styleType === "submit" ? "#1b116e":"#ffffff"};
+    background-color: ${props => props.styleType === "submit" ? "#6bedb5":"#1b116e"};
     opacity: ${props => props.disabled ? 0.5 : 1};
     &:hover {
-      background-color: ${props => props.primary ? "#55bd90":"#6bedb5"};
+      background-color: ${props => props.styleType === "submit" ? "#55bd90":"#6bedb5"};
     }
     &:active {
         border: solid 2px #1b116e;
@@ -25,9 +25,9 @@ const StyledButton = styled.button<ButtonProps>`
     }
 `;
 
-const Button: FC<ButtonProps> = ({size, primary, disabled, text, onClick, ...props}) => {
+const Button: FC<ButtonProps> = ({size, styleType, disabled, text, onClick, ...props}) => {
     return (
-        <StyledButton type="button" onClick={onClick} primary={primary} disabled={disabled} size={size} {...props}>
+        <StyledButton type="button" onClick={onClick} styleType={styleType} disabled={disabled} size={size} {...props}>
             {text}
         </StyledButton>
     )
