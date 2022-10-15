@@ -44,3 +44,15 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+## ####################### ##
+## NOTES TAKEN DURING WORK ##
+## ####################### ##
+
+## Useful blog posts ##
+1. https://blog.logrocket.com/build-component-library-react-typescript/ - nice info about dependencies and tools, basic from a to z instruction about creating library 
+2. https://blog.logrocket.com/build-react-custom-component-library-theme-ui/ - library made with themeUI 
+3. https://www.telerik.com/blogs/ultimate-guide-to-building-ui-component-library-part-3-components - guide for building library (3 parts), some useful info about development and testing
+4. 
+
