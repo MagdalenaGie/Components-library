@@ -1,4 +1,4 @@
-import React,{FC} from 'react'
+import React from 'react'
 import styled from 'styled-components';
 
 import {ButtonProps} from "./Button.types"
@@ -25,12 +25,10 @@ const StyledButton = styled.button<ButtonProps>`
     }
 `;
 
-const Button: FC<ButtonProps> = ({size, styleType, disabled, text, onClick, ...props}) => {
+export const Button: React.FC<ButtonProps> = ({size, styleType, disabled, label, onClick, ...props}) => {
     return (
         <StyledButton type="button" onClick={onClick} styleType={styleType} disabled={disabled} size={size} {...props}>
-            {text}
+            {label}
         </StyledButton>
     )
 }
-
-export default Button;

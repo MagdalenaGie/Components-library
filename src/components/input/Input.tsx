@@ -30,7 +30,7 @@ const StyledText = styled.p<InputProps>`
    color: ${props => props.disabled ? "#e4e3ea" : (props.error ? "#a9150b": "#080808")};
 `;
 
-const Input: FC<InputProps> = ({id, disabled, label, message, error, success, onChange, placeholder, ...props}) => {
+export const  Input: FC<InputProps> = ({id, disabled, label, message, error, success, onChange, placeholder, ...props}) => {
     return (
       <Fragment>
         <StyledLabel><StyledText disabled={disabled} error={error}>{label}</StyledText></StyledLabel>
@@ -39,5 +39,3 @@ const Input: FC<InputProps> = ({id, disabled, label, message, error, success, on
       </Fragment>
     )
 }
-
-export default Input;
