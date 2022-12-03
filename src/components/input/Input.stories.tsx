@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Input } from './Input';
 
 export default {
-  title: 'Lib/Input',
+  title: 'Lib/Form/Input',
   component: Input,
   argTypes: {
     backgroundColor: { control: 'color' },

@@ -12,6 +12,7 @@
     "@types/react-dom": "^18.0.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.4.3",
     "react-scripts": "5.0.1",
     "typescript": "^4.8.4",
     "web-vitals": "^2.1.4"
@@ -21,8 +22,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "storybook": "start-storybook -p 6006 -c .storybook watch-css -s ./src",
+    "build-storybook": "build-storybook -s ./src"
   },
   "eslintConfig": {
     "extends": [
@@ -53,6 +54,7 @@
     ]
   },
   "devDependencies": {
+    "@bissolli/storybook-css-properties": "0.0.14",
     "@rollup/plugin-commonjs": "^23.0.0",
     "@rollup/plugin-node-resolve": "^15.0.0",
     "@rollup/plugin-typescript": "^9.0.1",

@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components';
-
 import {ButtonProps} from "./Button.types"
 
 const StyledButton = styled.button<ButtonProps>`
     border: 0;
     line-height: 1;
     font-size: 15px;
+    font-family: 'Montserrat';
     cursor: pointer;
     font-weight: 700;
     font-weight: bold;

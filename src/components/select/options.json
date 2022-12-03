@@ -1,0 +1,38 @@
+[
+    {
+        "label" : "first",
+        "value" : 1,
+        "groupId" : 1,
+        "key": 1
+    },
+    {
+        "label" : "second",
+        "value" : 2,
+        "groupId" : 1,
+        "key": 2
+    },
+    {
+        "label" : "third",
+        "value" : 3,
+        "groupId" : 1,
+        "key": 3
+    },
+    {
+        "label" : "pierwszy",
+        "value" : 10,
+        "groupId" : 2,
+        "key": 1
+    },
+    {
+        "label" : "drugi",
+        "value" : 11,
+        "groupId" : 2,
+        "key": 2
+    },
+    {
+        "label" : "trzeci",
+        "value" : 12,
+        "groupId" : 2,
+        "key": 3
+    }
+]
