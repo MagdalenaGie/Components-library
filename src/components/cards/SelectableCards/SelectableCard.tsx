@@ -5,7 +5,10 @@ import { SelectableCardProps } from './SelectableCard.types';
 const CardButton = styled.button<SelectableCardProps>`
     transition: transform ease 300ms;
     background-repeat: no-repeat,
-    border: none;
+    border: unset;
+    &&& {
+            border: none;
+    }
     background: none;
     cursor: pointer;
     &:hover {
@@ -15,7 +18,7 @@ const CardButton = styled.button<SelectableCardProps>`
 
 const Image = styled.img`
     border-radius: 0.4rem;
-    box-shadow: 0px 0px 44px -16px rgba(255, 188, 73, 1);
+    box-shadow: 0px 0px 20px 0px rgba(255, 188, 73, 1);
     width: 6.5rem;
 `;
 

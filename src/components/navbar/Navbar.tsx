@@ -1,32 +1,16 @@
-import React, { FC,Fragment } from 'react'
-import { NavLink } from 'react-router-dom';
-import styled, { keyframes } from 'styled-components';
-import { NavbarProps, NavbarLink } from './Navbar.types';
-
-const animatedGradient = keyframes`
-    0% {
-      background-position: 0% 50%;
-    }
-    
-    50%{
-      background-position: 100% 50%;
-    }
-    
-    100% {
-      background-position: 0% 50%;
-    }
-`
+import React, { FC, Fragment } from 'react'
+import styled from 'styled-components';
+import { UserInfo } from '../userInfo/UserInfo';
+import logo from './../../assets/logo.png';
+import { NavbarProps } from './Navbar.types';
 
 const StyledNavbar = styled.div`
-    background-image: linear-gradient(-45deg, #ff5959, #ff4040, #ff0d6e, #ff8033,#d74177);
-    box-shadow: 3px 3px 20px #ff3352;
-    animation: 12s ${animatedGradient} infinite;
-    border-radius: 40px;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
     height: 60px;
     padding: 8px;
-    font-family: 'Anton', sans-serif;
+    font-family: 'Montserrat';
+    background-color: black;
+    font-weight: bold;
+    font-size: 1.2rem;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -42,43 +26,42 @@ const NavbarBrand = styled.div`
     font-size: x-large;
 `;
 
+const PlayerGameInfo = styled.div`
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+`;
+
 const NavbarLogo = styled.img`
     height: 30px;
     margin: 5px;
 `;
 
-const NavbarLinks = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-`;
-
-const StyledNavbarLink = styled(NavLink)`
-  display: flex;
-  justify-content: center;
-  text-decoration: none;
+const GameName = styled.div`
+  font-weight: bold;
   color: white;
-  margin: 10px 0;
-  padding: 5px 10px;
+  font-size: 1.2rem;
+  font-family: 'Montserrat';
+  padding-left: 8px;
+  text-align: end;
+  padding-right:8px;
 `;
 
 
-export const  Navbar: FC<NavbarProps> = ({logoPath, label, linkLabels,  ...props}) => {
-
-    let links: Array<JSX.Element> = [];
-    linkLabels.forEach(link => links.push(<StyledNavbarLink to={link.linkTo}>{link.label}</StyledNavbarLink>))
-
-    console.log("nav!");
+export const  Navbar: FC<NavbarProps> = ({player, inGame, gameName, gameGuid,  ...props}) => {
+    
     return (
       <StyledNavbar>
             <NavbarBrand>
-                {logoPath!==undefined ? <NavbarLogo src={logoPath}/> : null}
-                {label}
+                <NavbarLogo src={logo}/>
+                Planning poker
             </NavbarBrand>
-            <NavbarLinks>
-                {links}
-            </NavbarLinks>
+            { inGame ?
+            <PlayerGameInfo>
+              <GameName>In room:<br/>{gameName}</GameName>
+              { player ? <UserInfo player={player}/> : null }
+            </PlayerGameInfo>
+            : null}
       </StyledNavbar>
     )
 }

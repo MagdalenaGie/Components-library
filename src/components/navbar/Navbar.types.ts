@@ -1,11 +1,8 @@
-export interface NavbarProps {
-    logoPath?: string,
-    label?: string,
-    linkLabels:Array<NavbarLink>
-}
+import { Player } from "../cards/PlayerCard/PlayerCard.types"
 
-export interface NavbarLink{
-    label: string,
-    linkTo: string
-    requireAuth: boolean
+export interface NavbarProps {
+    player: Player | null,
+    inGame: boolean,
+    gameName: string,
+    gameGuid: string
 }

@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { SelectableCard } from './SelectableCard';
 
 export default {
-  title: 'Lib/Cards',
+  title: 'Lib/Cards/SelectableCard',
   component: SelectableCard,
 } as ComponentMeta<typeof SelectableCard>;
 
