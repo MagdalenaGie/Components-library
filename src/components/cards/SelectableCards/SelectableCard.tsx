@@ -1,8 +1,10 @@
 import React from 'react'
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 import { SelectableCardProps } from './SelectableCard.types';
 
 const CardButton = styled.button<SelectableCardProps>`
+    flex: 1 1 0;
+    display: flex;
     transition: transform ease 300ms;
     background-repeat: no-repeat,
     border: unset;
@@ -14,12 +16,15 @@ const CardButton = styled.button<SelectableCardProps>`
     &:hover {
         transform: translate(0, -15px);
     }
+    ${props => props.selected && css`
+        transform: translate(0, -15px);
+    `}
 `;
 
 const Image = styled.img`
     border-radius: 0.4rem;
-    box-shadow: 0px 0px 20px 0px rgba(255, 188, 73, 1);
-    width: 6.5rem;
+    box-shadow: 0px 0px 3px 0px rgb(172, 171, 169);
+    width: 100%;
 `;
 
 export const SelectableCard: React.FC<SelectableCardProps> = ({value, selected, onClick, ...props}) => {

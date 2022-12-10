@@ -4,7 +4,7 @@ import { AvatarPrefixes, UserInfoProps } from './UserInfo.types';
 
 const Avatar = styled.img`
   border-radius: 100rem;
-  border: 3px solid darkturquoise;
+  border: 2px solid darkturquoise;
   width: 3rem;
   height: 3rem;
 `;
@@ -18,7 +18,6 @@ const Covered = styled.div`
 `;
 
 const PlayerName = styled.div`
-  font-weight: bold;
   color: darkturquoise;
   font-size: 1.2rem;
   font-family: 'Montserrat';

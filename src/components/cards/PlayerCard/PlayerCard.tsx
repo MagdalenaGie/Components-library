@@ -11,7 +11,7 @@ const Image = styled.img`
   margin: auto;
   width: 10rem;
   background: red;
-  //border: 3px solid darkturquoise;
+  margin-top: 5px;
   box-shadow: 0px 0px 7px 0px darkturquoise;
 `;
 

@@ -9,13 +9,13 @@ const StyledNavbar = styled.div`
     padding: 8px;
     font-family: 'Montserrat';
     background-color: black;
-    font-weight: bold;
     font-size: 1.2rem;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
     color: white;
+    box-shadow: 0px 0px 3px 0px rgb(172, 171, 169);
 `;
 
 const NavbarBrand = styled.div`
@@ -24,6 +24,7 @@ const NavbarBrand = styled.div`
     align-items: center;
     flex-direction: row;
     font-size: x-large;
+    font-weight: bold;
 `;
 
 const PlayerGameInfo = styled.div`
@@ -38,7 +39,6 @@ const NavbarLogo = styled.img`
 `;
 
 const GameName = styled.div`
-  font-weight: bold;
   color: white;
   font-size: 1.2rem;
   font-family: 'Montserrat';

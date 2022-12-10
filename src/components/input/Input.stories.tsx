@@ -15,9 +15,9 @@ const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;
 
 export const InputName = Template.bind({});
 InputName.args = {
-  message: 'Enter your name',
+  message: 'Entered name is invalid',
   label: 'Your name',
-  placeholder: 'name...'
+  placeholder: 'Enter your name'
 };
 
 export const InputDisabled = Template.bind({});
