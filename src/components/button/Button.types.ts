@@ -1,7 +1,7 @@
 import {  MouseEventHandler } from "react"
 export interface ButtonProps {
     label?: string,
-    styleType?: "submit" | "reject" | "primary" | "secondary"
+    styleType?: "yellow" | "orange" | "raspberry" | "yellow" | "turquise"
     disabled?: boolean,
     size?: "small" | "medium" | "large",
     onClick?: MouseEventHandler<HTMLButtonElement>
