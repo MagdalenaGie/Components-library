@@ -17,3 +17,8 @@ export const ResultChart = Template.bind({});
 ResultChart.args = {
   votes: [1, 3, 5, 3, 3, 2, 5]
 };
+
+export const ResultSmallerChart = Template.bind({});
+ResultSmallerChart.args = {
+  votes: [3, 5, 3, 3, 5]
+};

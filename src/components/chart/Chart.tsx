@@ -1,21 +1,24 @@
 import React from 'react'
 import styled from 'styled-components';
 import {ChartProps, BarProps} from "./Chart.types"
-import './Chart.css';
 
 const StyledChartWrapper = styled.div`
     font-family: 'Montserrat';
     color: #fff;
     margin: 0 auto;
-    padding: 50px;
+    padding: 0 30vw;
     max-width: 1200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 `;
 
 const StyledBarChartDiv = styled.div`
     position: relative;
     width: 100%;
-    height: auto;
-    margin-bottom: 50px;
+    // height: auto;
+    display: flex;
+    align-items: center;
 `;
 
 const StyledGraphBarsList = styled.ul`
@@ -30,7 +33,7 @@ const StyledGraphBarsList = styled.ul`
 const StyledGraphBarBack = styled.span`
     border-radius: 2px;
     background: #E0F2FF17;
-    margin-bottom: 10px;
+    margin: 10px 0;
     display: block;
 `;
 
@@ -80,6 +83,32 @@ const StyledGraphBar = styled.li<BarProps>`
     }
 `;
 
+const StyledGraphLegend = styled.span`
+    position: absolute;
+    margin-right: 10px;
+    left: -40px;
+    z-index: 9999;
+`;
+
+const StyletResultDiv = styled.div`
+    margin-left: 30px;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+`;
+
+const StyledH1 = styled.h1`
+    margin: 0;
+`;
+
+const StyledH2 = styled.h2`
+    margin: 0;
+`;
+
 export const Chart: React.FC<ChartProps> = ({ ...props}) => {
 
     let segregatedVotes= new Map<number, number>();
@@ -101,15 +130,16 @@ export const Chart: React.FC<ChartProps> = ({ ...props}) => {
         graphBars.push(
             <StyledGraphBarBack>
                 <StyledGraphBar width={barLength} value={key} numberOfVotes={value}>
-                    <span className="graph-legend">{key} sp</span>
+                    <StyledGraphLegend>{key} sp</StyledGraphLegend>
                 </StyledGraphBar>
             </StyledGraphBarBack>  
         );
     });
 
+    let votingResult = props.votes.reduce((a, b) => a + b, 0) / props.votes.length;
+
     return (
         <StyledChartWrapper>   
-            <h2>Voting result</h2>
             <StyledBarChartDiv>
                 <StyledGraphBarsList>
 
@@ -117,6 +147,10 @@ export const Chart: React.FC<ChartProps> = ({ ...props}) => {
 
                 </StyledGraphBarsList>
             </StyledBarChartDiv>
+            <StyletResultDiv>
+                <StyledH2>Voting result:</StyledH2>
+                <StyledH1>{votingResult.toFixed(1)}</StyledH1>
+            </StyletResultDiv>   
         </StyledChartWrapper>
     )
 }
