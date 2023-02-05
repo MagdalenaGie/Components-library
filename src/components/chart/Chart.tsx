@@ -86,7 +86,7 @@ const StyledGraphBar = styled.li<BarProps>`
 const StyledGraphLegend = styled.span`
     position: absolute;
     margin-right: 10px;
-    left: -40px;
+    left: -50px;
     z-index: 9999;
 `;
 
@@ -110,23 +110,45 @@ const StyledH2 = styled.h2`
 `;
 
 export const Chart: React.FC<ChartProps> = ({ ...props}) => {
+    const possibleVotes = [0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89];
 
-    let segregatedVotes= new Map<number, number>();
+    const prepareVotesMapEntries = (votes: Array<number>): Array<number> => {
+        const lowestVote = Math.min(...votes);
+        const highestVote = Math.max(...votes);
+        const lowestVoteIndex = possibleVotes.indexOf(lowestVote);
+        const highestVoteIndex = possibleVotes.indexOf(highestVote);
+        if(highestVoteIndex - lowestVoteIndex > 1 ){
+            return possibleVotes.slice(lowestVoteIndex, highestVoteIndex + 1);
+        }else if( lowestVoteIndex === 0){
+            return possibleVotes.slice(lowestVoteIndex, highestVoteIndex + 3);
+        }else if( highestVoteIndex === possibleVotes.length - 1){
+            return possibleVotes.slice(lowestVoteIndex - 3, highestVoteIndex + 1);
+        }else{
+            return possibleVotes.slice(lowestVoteIndex - 1, highestVoteIndex + 2);
+        } 
+    }
 
-    props.votes.sort();
+    const prepareMapWithEntries = (votes: Array<number>): Map<number, number> => {
+        return new Map<number, number>(votes.map((vote) => [vote, 0]));
+    }
 
-    props.votes.forEach((vote) => {
-        if (segregatedVotes.has(vote)) {
-            segregatedVotes.set(vote, segregatedVotes.get(vote)! + 1);
-        } else {
-            segregatedVotes.set(vote, 1);
-        }
-    });
+    const countVotes = (votes: Array<number>, voteMap: Map<number, number>): Map<number, number> => {
+        votes.forEach((vote) => {
+            voteMap.set(vote, voteMap.get(vote)! + 1);
+        });
+        return voteMap;
+    }
+
+    const mapEntries = prepareVotesMapEntries(props.votes);
+    const mapWithEntries = prepareMapWithEntries(mapEntries);
+    const segregatedVotes = countVotes(props.votes, mapWithEntries);
+
+    const maxVotes = Math.max(...segregatedVotes.values());
 
     let graphBars: JSX.Element[] = []
 
     segregatedVotes.forEach((value: number, key: number) => {
-        let barLength = value / props.votes.length * 100;
+        let barLength = value / maxVotes * 100;
         graphBars.push(
             <StyledGraphBarBack>
                 <StyledGraphBar width={barLength} value={key} numberOfVotes={value}>
