@@ -11,3 +11,7 @@ export interface PlayerCardProps {
     revealed: boolean,
     player: Player
 }
+
+export interface StyledCardFaceProps {
+    revealed: Boolean
+}
