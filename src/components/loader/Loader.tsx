@@ -36,6 +36,6 @@ const StyledLoader = styled.span`
 
 export const Loader = () => {
     return(
-        <StyledLoader></StyledLoader>
+        <StyledLoader data-testid="loader"></StyledLoader>
     )
 }

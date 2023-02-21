@@ -5,7 +5,7 @@ import {ButtonProps} from "./Button.types"
 const StyledButton = styled.button<ButtonProps>`
     line-height: 1;
     font-size: 15px;
-    font-family: 'Montserrat';
+    font-family: Montserrat;
     cursor: pointer;
     display: inline-block;
     box-shadow: 0px 0px 3px 0px rgb(172, 171, 169);

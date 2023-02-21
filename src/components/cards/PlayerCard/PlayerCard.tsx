@@ -48,17 +48,17 @@ export const PlayerCard: React.FC<PlayerCardProps> = ({value, selected, revealed
     if(selected && revealed && value){
         cardImage = require('./../../../assets/cards/card'+ value +'.png')
     }
-  
+
   return (
     <Covered>
         <UserInfo player={player}/>
-        {player.isSpectator ? <Image src={spectator} /> :  
+        {player.isSpectator ? <Image src={spectator} alt={"cardSpectator"}/> :  
           <StyledFlippableCard>
             <StyledCardFace revealed={!revealed}>
-              <Image src={cardImage} />
+              <Image src={cardImage} alt={"cardImage"}/>
             </StyledCardFace>
             <StyledCardFace revealed={revealed}>
-              <Image src={selected ? cardBack : cardWait} />
+              <Image src={selected ? cardBack : cardWait} alt={"CardBack"}/>
             </StyledCardFace>
           </StyledFlippableCard> }
     </Covered>

@@ -30,7 +30,7 @@ export const UserInfo: React.FC<UserInfoProps> = ({player, ...props}) => {
     const nickname =  'Admiral' //'face' + avatarId as AvatarPrefixes;
     return (
         <Covered>
-            <Avatar src={avatar} />
+            <Avatar src={avatar} alt={"User avatar"}/>
             <PlayerName>{nickname}<br/>{player.name}</PlayerName>
         </Covered>
     );

@@ -26,11 +26,11 @@ export const CardsToSelect: React.FC<CardsToSelectProps> = ({...props}) => {
     const fibonacci = [0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
     let cards: JSX.Element[] = []
     fibonacci.forEach( el => {
-        cards.push(<SelectableCard value={el} selected={el===selected} onClick={(e) => handleCardClicked(e, el)}/>)
+        cards.push(<SelectableCard key={el} value={el} selected={el===selected} onClick={(e) => handleCardClicked(e, el)}/>)
     })
 
     return (
-        <CardsList>
+        <CardsList data-testid="cardsList">
             {cards}
         </CardsList>
     )

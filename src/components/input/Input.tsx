@@ -45,11 +45,11 @@ const StyledLabel = styled.label`
   }
 `;
 
-export const  Input: FC<InputProps> = ({id, disabled, label, message, error, success, onChange, placeholder, ...props}) => {
+export const  Input: FC<InputProps> = ({id, disabled, label, message, error, success, onChange, ...props}) => {
     return (
       <Wrapper>
         <StyledInput required/>
-        <StyledLabel>First Name</StyledLabel>
+        <StyledLabel>{label}</StyledLabel>
       </Wrapper>
     );
 }

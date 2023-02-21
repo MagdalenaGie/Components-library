@@ -16,6 +16,6 @@ UserInfoExample.args = {
     guid: "ddfdf",
     name: "Adam",
     isSpectator: false,
-    avatarId: "1"
+    avatarId: 1
   }
 };

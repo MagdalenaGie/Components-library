@@ -16,16 +16,15 @@ const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;
 export const InputName = Template.bind({});
 InputName.args = {
   message: 'Entered name is invalid',
-  label: 'Your name',
-  placeholder: 'Enter your name'
+  label: 'Your name'
 };
 
-export const InputDisabled = Template.bind({});
-InputDisabled.args = {
-  label: 'Disabled input',
-  message: 'Disabled message',
-  placeholder: 'Disabled holder',
-  disabled: true
-};
+// export const InputDisabled = Template.bind({});
+// InputDisabled.args = {
+//   label: 'Disabled input',
+//   message: 'Disabled message',
+//   placeholder: 'Disabled holder',
+//   disabled: true
+// };
 
 
