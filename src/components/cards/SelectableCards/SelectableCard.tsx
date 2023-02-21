@@ -33,7 +33,7 @@ export const SelectableCard: React.FC<SelectableCardProps> = ({value, selected, 
 
     return (
         <CardButton type="button" onClick={onClick} value={value} selected={selected} {...props}>
-            <Image src={cardImage} />
+            <Image src={cardImage} alt={"cardImage"} />
         </CardButton>
     )
 }

@@ -150,7 +150,7 @@ export const Chart: React.FC<ChartProps> = ({ ...props}) => {
     segregatedVotes.forEach((value: number, key: number) => {
         let barLength = value / maxVotes * 100;
         graphBars.push(
-            <StyledGraphBarBack>
+            <StyledGraphBarBack key={key+"-"+value} role={"grephBar"}>
                 <StyledGraphBar width={barLength} value={key} numberOfVotes={value}>
                     <StyledGraphLegend>{key} sp</StyledGraphLegend>
                 </StyledGraphBar>
@@ -171,7 +171,7 @@ export const Chart: React.FC<ChartProps> = ({ ...props}) => {
             </StyledBarChartDiv>
             <StyletResultDiv>
                 <StyledH2>Voting result:</StyledH2>
-                <StyledH1>{votingResult.toFixed(1)}</StyledH1>
+                <StyledH1 role={"VotingResultValue"}>{votingResult.toFixed(1)}</StyledH1>
             </StyletResultDiv>   
         </StyledChartWrapper>
     )

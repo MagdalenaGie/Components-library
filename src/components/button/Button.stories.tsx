@@ -16,9 +16,9 @@ export default {
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
-export const ExampleButton = Template.bind({});
+export const RaspberryButton = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-ExampleButton.args = {
-  styleType: 'submit',
-  label: 'Button',
+RaspberryButton.args = {
+  label: 'Rasp button',
+  styleType: "raspberry"
 };

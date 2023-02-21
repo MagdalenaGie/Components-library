@@ -10,8 +10,8 @@ export default {
 
 const Template: ComponentStory<typeof PlayerCard> = (args) => <PlayerCard {...args} />;
 
-export const Card = Template.bind({});
-Card.args = {
+export const SelectedRenamedCard = Template.bind({});
+SelectedRenamedCard.args = {
   value: 3,
   selected: true,
   revealed: true,
@@ -35,8 +35,20 @@ SpectatorCard.args = {
 
 export const WaitingToSelectCard = Template.bind({});
 WaitingToSelectCard.args = {
-  value: 3,
   selected: false,
+  revealed: false,
+  player: {
+    guid: "sdffgf",
+    name: "Adam",
+    isSpectator: false,
+    avatarId: 1
+  }
+};
+
+export const SelectedCard = Template.bind({});
+SelectedCard.args = {
+  value: 3,
+  selected: true,
   revealed: false,
   player: {
     guid: "sdffgf",
