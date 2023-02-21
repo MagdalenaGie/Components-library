@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
 import {ChartProps, BarProps} from "./Chart.types"
+// import './Chart.css'
 
 const StyledChartWrapper = styled.div`
     font-family: 'Montserrat';
@@ -51,7 +52,7 @@ const StyledGraphBar = styled.li<BarProps>`
     z-index: 9999;
     display: block;
     height: 20px;
-    width: ${props => props.width}%;
+    width: ${props => props.width[props.index]}%;
     &:hover {
         -webkit-transition: all 0.5s ease;
         -moz-transition: all 0.5s ease;
@@ -112,6 +113,8 @@ const StyledH2 = styled.h2`
 export const Chart: React.FC<ChartProps> = ({ ...props}) => {
     const possibleVotes = [0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89];
 
+    const [widthArr, setWidthArr] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+
     const prepareVotesMapEntries = (votes: Array<number>): Array<number> => {
         const lowestVote = Math.min(...votes);
         const highestVote = Math.max(...votes);
@@ -143,15 +146,24 @@ export const Chart: React.FC<ChartProps> = ({ ...props}) => {
     const mapWithEntries = prepareMapWithEntries(mapEntries);
     const segregatedVotes = countVotes(props.votes, mapWithEntries);
 
-    const maxVotes = Math.max(...segregatedVotes.values());
+    useEffect(() => {
+        const maxVotes = Math.max(...segregatedVotes.values());
+        let newWidthArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        segregatedVotes.forEach((value: number, key: number) => {
+            let barLength = value / maxVotes * 100;
+            let valuePosition = possibleVotes.indexOf(key);
+            newWidthArr[valuePosition] = Math.round(barLength);
+        });
+        setWidthArr(newWidthArr);
+    }, []);
 
     let graphBars: JSX.Element[] = []
 
     segregatedVotes.forEach((value: number, key: number) => {
-        let barLength = value / maxVotes * 100;
+        let index = possibleVotes.indexOf(key);
         graphBars.push(
             <StyledGraphBarBack key={key+"-"+value} role={"grephBar"}>
-                <StyledGraphBar width={barLength} value={key} numberOfVotes={value}>
+                <StyledGraphBar width={widthArr} value={key} numberOfVotes={value} index={index}>
                     <StyledGraphLegend>{key} sp</StyledGraphLegend>
                 </StyledGraphBar>
             </StyledGraphBarBack>  
