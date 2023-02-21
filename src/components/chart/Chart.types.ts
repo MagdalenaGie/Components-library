@@ -3,7 +3,8 @@ export interface ChartProps {
 }
 
 export interface BarProps {
-    width: number,
+    width: Array<number>,
+    index: number,
     numberOfVotes: number,
     value: number
 }

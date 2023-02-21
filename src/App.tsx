@@ -4,6 +4,7 @@ import { Fragment } from "react";
 // import logo from './assets/exampleLogo2.png';
 import FontStyles from "./components/fonts/FontStyles";
 import { Button } from "./components/button/Button";
+import { Chart } from "./components/chart/Chart";
 // import './components/fonts/FontStyles.css'
 
 function App() {
@@ -29,7 +30,8 @@ function App() {
     <Fragment>
         <FontStyles/>
         {/* <Navbar logoPath={logo} label={"Brand Name"} linkLabels={linkLabels}/> */}
-        <Button label={'Button'}/>
+        {/* <Button label={'Button'}/> */}
+        <Chart votes={[1, 3, 5, 3, 3, 2, 5]}/>
     </Fragment>
   );
 }
