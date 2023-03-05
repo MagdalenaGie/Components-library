@@ -5,11 +5,12 @@ import { terser } from 'rollup-plugin-terser';
 import external from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
 import image from '@rollup/plugin-image';
+import dts from 'rollup-plugin-dts';
 
 const packageJson = require('./package.json');
 
-export default {
-    input: 'src/index.tsx',
+export default [{
+    input: 'src/index.ts',
     inlineDynamicImports: true,
     output: [
         {
@@ -33,4 +34,10 @@ export default {
         terser(),
         image()
     ]
-}
+},
+{
+    input: 'dist/esm/types/index.d.ts',
+    output: [{ file: 'dist/index.d.ts', format: "esm" }],
+    external: [/\.css$/],
+    plugins: [dts()],
+}]
