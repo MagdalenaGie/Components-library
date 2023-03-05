@@ -1,7 +1,6 @@
-import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { UserInfo } from './UserInfo';
+import UserInfo from './UserInfo';
 
 export default {
   title: 'Lib/UserInfo',

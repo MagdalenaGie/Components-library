@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
-import { SelectableCard } from '../SelectableCards/SelectableCard';
+import SelectableCard from '../SelectableCards/SelectableCard';
 import { CardsToSelectProps } from './CardsToSelect.types';
 
 const CardsList = styled.div`
@@ -12,7 +12,7 @@ const CardsList = styled.div`
   bottom: 5vh;
 `;
 
-export const CardsToSelect: React.FC<CardsToSelectProps> = ({...props}) => {
+const CardsToSelect: React.FC<CardsToSelectProps> = ({...props}) => {
 
     const [selected, setSelected] = useState(-1)
 
@@ -35,3 +35,5 @@ export const CardsToSelect: React.FC<CardsToSelectProps> = ({...props}) => {
         </CardsList>
     )
 }
+
+export default CardsToSelect;

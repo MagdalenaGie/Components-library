@@ -26,10 +26,12 @@ const StyledButton = styled.button<ButtonProps>`
     }
 `;
 
-export const Button: React.FC<ButtonProps> = ({size, styleType, disabled, label, onClick, ...props}) => {
+const Button: React.FC<ButtonProps> = ({size, styleType, disabled, label, onClick, ...props}) => {
     return (
         <StyledButton type="button" onClick={onClick} styleType={styleType} disabled={disabled} size={size} {...props}>
             {label}
         </StyledButton>
     )
 }
+
+export default Button;

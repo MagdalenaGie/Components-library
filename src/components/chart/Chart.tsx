@@ -110,7 +110,7 @@ const StyledH2 = styled.h2`
     margin: 0;
 `;
 
-export const Chart: React.FC<ChartProps> = ({ ...props}) => {
+const Chart: React.FC<ChartProps> = ({ ...props}) => {
     const possibleVotes = [0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89];
 
     const [widthArr, setWidthArr] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
@@ -188,3 +188,5 @@ export const Chart: React.FC<ChartProps> = ({ ...props}) => {
         </StyledChartWrapper>
     )
 }
+
+export default Chart;

@@ -27,7 +27,7 @@ const Image = styled.img`
     width: 100%;
 `;
 
-export const SelectableCard: React.FC<SelectableCardProps> = ({value, selected, onClick, ...props}) => {
+const SelectableCard: React.FC<SelectableCardProps> = ({value, selected, onClick, ...props}) => {
 
     const cardImage = require('./../../../assets/cards/card'+ value +'.png')
 
@@ -37,3 +37,5 @@ export const SelectableCard: React.FC<SelectableCardProps> = ({value, selected, 
         </CardButton>
     )
 }
+
+export default SelectableCard;

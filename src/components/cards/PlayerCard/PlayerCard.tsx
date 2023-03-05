@@ -4,7 +4,8 @@ import { PlayerCardProps, StyledCardFaceProps } from './PlayerCard.types';
 import cardBack from './../../../assets/cards/cardback.png';
 import cardWait from './../../../assets/cards/cardwait.png';
 import spectator from './../../../assets/cards/cardback.png';
-import { UserInfo } from '../../userInfo/UserInfo';
+import UserInfo from '../../userInfo';
+
 
 const Image = styled.img`
   border-radius: 0.8rem;
@@ -42,7 +43,7 @@ const StyledCardFace = styled.div<StyledCardFaceProps>`
 `;
 
 
-export const PlayerCard: React.FC<PlayerCardProps> = ({value, selected, revealed, player, ...props}) => {
+const PlayerCard: React.FC<PlayerCardProps> = ({value, selected, revealed, player, ...props}) => {
 
     let cardImage;
     if(selected && revealed && value){
@@ -64,3 +65,5 @@ export const PlayerCard: React.FC<PlayerCardProps> = ({value, selected, revealed
     </Covered>
   );
 }
+
+export default PlayerCard;

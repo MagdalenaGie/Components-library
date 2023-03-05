@@ -34,8 +34,10 @@ const StyledLoader = styled.span`
     
 `
 
-export const Loader = () => {
+const Loader = () => {
     return(
         <StyledLoader data-testid="loader"></StyledLoader>
     )
 }
+
+export default Loader;

@@ -24,7 +24,7 @@ const PlayerName = styled.div`
   padding-left: 8px;
 `;
 
-export const UserInfo: React.FC<UserInfoProps> = ({player, ...props}) => {
+const UserInfo: React.FC<UserInfoProps> = ({player, ...props}) => {
 
     const avatar = require('./../../assets/avatars/face'+ player.avatarId +'.png')
     const nickname =  'Admiral' //'face' + avatarId as AvatarPrefixes;
@@ -35,3 +35,5 @@ export const UserInfo: React.FC<UserInfoProps> = ({player, ...props}) => {
         </Covered>
     );
 }
+
+export default UserInfo;

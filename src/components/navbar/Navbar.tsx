@@ -1,6 +1,6 @@
-import React, { FC, Fragment } from 'react'
+import { FC } from 'react'
 import styled from 'styled-components';
-import { UserInfo } from '../userInfo/UserInfo';
+import UserInfo from '../userInfo';
 import logo from './../../assets/logo.png';
 import { NavbarProps } from './Navbar.types';
 
@@ -48,7 +48,7 @@ const GameName = styled.div`
 `;
 
 
-export const  Navbar: FC<NavbarProps> = ({player, inGame, gameName, gameGuid,  ...props}) => {
+const  Navbar: FC<NavbarProps> = ({player, inGame, gameName, gameGuid,  ...props}) => {
     
     return (
       <StyledNavbar>
@@ -65,3 +65,5 @@ export const  Navbar: FC<NavbarProps> = ({player, inGame, gameName, gameGuid,  .
       </StyledNavbar>
     )
 }
+
+export default Navbar;

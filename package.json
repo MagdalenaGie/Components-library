@@ -58,6 +58,7 @@
   "devDependencies": {
     "@bissolli/storybook-css-properties": "0.0.14",
     "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-image": "^3.0.2",
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@rollup/plugin-typescript": "^11.0.0",
     "@storybook/addon-actions": "^6.5.12",

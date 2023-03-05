@@ -45,7 +45,7 @@ const StyledLabel = styled.label`
   }
 `;
 
-export const  Input: FC<InputProps> = ({id, disabled, label, message, error, success, onChange, ...props}) => {
+const  Input: FC<InputProps> = ({id, disabled, label, message, error, success, onChange, ...props}) => {
     return (
       <Wrapper>
         <StyledInput required/>
@@ -53,3 +53,5 @@ export const  Input: FC<InputProps> = ({id, disabled, label, message, error, suc
       </Wrapper>
     );
 }
+
+export default Input;

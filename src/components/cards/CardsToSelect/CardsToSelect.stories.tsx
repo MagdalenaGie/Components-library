@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { CardsToSelect } from './CardsToSelect';
+import CardsToSelect from './CardsToSelect';
 
 export default {
   title: 'Lib/Cards/CardsToSelect',

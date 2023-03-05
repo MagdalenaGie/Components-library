@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Chart } from './Chart';
+import Chart from './Chart';
 
 export default {
   title: 'Lib/Chart',
