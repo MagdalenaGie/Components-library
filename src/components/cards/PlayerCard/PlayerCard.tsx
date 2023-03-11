@@ -1,10 +1,21 @@
 import React from 'react'
 import styled from 'styled-components';
 import { PlayerCardProps, StyledCardFaceProps } from './PlayerCard.types';
-import cardBack from './../../../assets/cards/cardback.png';
-import cardWait from './../../../assets/cards/cardwait.png';
-import spectator from './../../../assets/cards/cardback.png';
 import UserInfo from '../../userInfo';
+import card0 from './../../../assets/cards/card0.png';
+import card1 from './../../../assets/cards/card1.png';
+import card2 from './../../../assets/cards/card2.png';
+import card3 from './../../../assets/cards/card3.png';
+import card5 from './../../../assets/cards/card5.png';
+import card8 from './../../../assets/cards/card8.png';
+import card13 from './../../../assets/cards/card13.png';
+import card21 from './../../../assets/cards/card21.png';
+import card34 from './../../../assets/cards/card34.png';
+import card55 from './../../../assets/cards/card55.png';
+import card89 from './../../../assets/cards/card89.png';
+import cardBack from './../../../assets/cards/cardback2.png';
+import cardWait from './../../../assets/cards/cardwait2.png';
+import spectator from './../../../assets/cards/spectator.png';
 
 
 const Image = styled.img`
@@ -45,9 +56,23 @@ const StyledCardFace = styled.div<StyledCardFaceProps>`
 
 const PlayerCard: React.FC<PlayerCardProps> = ({value, selected, revealed, player, ...props}) => {
 
+    const cardMap = new Map<number, string> ([
+      [0, card0],
+      [1, card1],
+      [2, card2],
+      [3, card3],
+      [5, card5],
+      [8, card8],
+      [13, card13],
+      [21, card21],
+      [34, card34],
+      [55, card55],
+      [89, card89]
+    ]);
+
     let cardImage;
-    if(selected && revealed && value){
-        cardImage = require('./../../../assets/cards/card'+ value +'.png')
+    if(selected && revealed && value && cardMap.get(value)){
+        cardImage = cardMap.get(value);
     }
 
   return (

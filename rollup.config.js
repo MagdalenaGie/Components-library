@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
@@ -31,7 +32,7 @@ export default [{
         commonjs(),
         typescript({ tsconfig: './tsconfig.json' }),
         postcss(),
-        terser(),
+        terser({ compress: true }),
         image()
     ]
 },
