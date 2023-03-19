@@ -17,20 +17,18 @@ export default [{
         {
             file: packageJson.main,
             format: 'cjs',
-            sourcemap: true,
             name: 'react-lib'
         },
         {
             file: packageJson.module,
             format: 'esm',
-            sourcemap: true
         }
     ],
     plugins: [
         external(),
         resolve(),
         commonjs(),
-        typescript({ tsconfig: './tsconfig.json' }),
+        typescript({ tsconfig: './tsconfig.json', sourceMap: false }),
         postcss(),
         terser({ compress: true }),
         image()
