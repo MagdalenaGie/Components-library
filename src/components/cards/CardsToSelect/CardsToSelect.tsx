@@ -5,7 +5,7 @@ import { CardsToSelectProps } from './CardsToSelect.types';
 
 const CardsList = styled.div`
   display: flex;
-  width: 90%;
+  width: 70%;
   justify-content: center;
   align-items: center;
   margin: 0 auto;

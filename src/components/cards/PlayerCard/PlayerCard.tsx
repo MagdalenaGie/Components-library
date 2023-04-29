@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import { PlayerCardProps, StyledCardFaceProps } from './PlayerCard.types';
+import { PlayerCardProps, StyledCardFaceProps, StyledCardImageProps } from './PlayerCard.types';
 import UserInfo from '../../userInfo';
 import card0 from './../../../assets/cards/card0.png';
 import card1 from './../../../assets/cards/card1.png';
@@ -18,10 +18,12 @@ import cardWait from './../../../assets/cards/cardwait2.png';
 import spectator from './../../../assets/cards/spectator.png';
 
 
-const Image = styled.img`
+const Image = styled.img<StyledCardImageProps>`
   border-radius: 0.8rem;
   margin: auto;
-  width: 10rem;
+  // width: 5rem;
+  width: ${props => 
+    props.size === "small" ? "4rem" : (props.size === "medium" ? "6rem" : "8rem")};
   background: red;
   margin-top: 5px;
   box-shadow: 0px 0px 7px 0px darkturquoise;
@@ -54,7 +56,7 @@ const StyledCardFace = styled.div<StyledCardFaceProps>`
 `;
 
 
-const PlayerCard: React.FC<PlayerCardProps> = ({value, selected, revealed, player, ...props}) => {
+const PlayerCard: React.FC<PlayerCardProps> = ({value, selected, revealed, player, size, ...props}) => {
 
     const cardMap = new Map<number, string> ([
       [0, card0],
@@ -77,11 +79,11 @@ const PlayerCard: React.FC<PlayerCardProps> = ({value, selected, revealed, playe
 
   return (
     <Covered>
-        <UserInfo player={player}/>
+        <UserInfo player={player} size={size}/>
         {player.isSpectator ? <Image src={spectator} alt={"cardSpectator"}/> :  
           <StyledFlippableCard>
             <StyledCardFace revealed={!revealed}>
-              <Image src={cardImage} alt={"cardImage"}/>
+              <Image src={cardImage} alt={"cardImage"} size={size}/>
             </StyledCardFace>
             <StyledCardFace revealed={revealed}>
               <Image src={selected ? cardBack : cardWait} alt={"CardBack"}/>

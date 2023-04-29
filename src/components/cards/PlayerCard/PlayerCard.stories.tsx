@@ -20,7 +20,8 @@ SelectedRenamedCard.args = {
     name: "Adam",
     isSpectator: false,
     avatarId: 1
-  }
+  },
+  size: "small"
 };
 
 export const SpectatorCard = Template.bind({});

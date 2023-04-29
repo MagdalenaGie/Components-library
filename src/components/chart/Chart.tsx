@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
 import {ChartProps, BarProps} from "./Chart.types"
-// import './Chart.css'
 
 const StyledChartWrapper = styled.div`
     font-family: 'Montserrat';
     color: #fff;
-    margin: 0 auto;
-    padding: 0 30vw;
-    max-width: 1200px;
+    // margin: 0 auto;
+    // padding: 0 30vw;
+    margin: 0px 50px;
+    min-width: 50vw;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -17,7 +17,6 @@ const StyledChartWrapper = styled.div`
 const StyledBarChartDiv = styled.div`
     position: relative;
     width: 100%;
-    // height: auto;
     display: flex;
     align-items: center;
 `;

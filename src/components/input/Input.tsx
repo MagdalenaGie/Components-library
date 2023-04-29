@@ -45,10 +45,10 @@ const StyledLabel = styled.label`
   }
 `;
 
-const  Input: FC<InputProps> = ({id, disabled, label, message, error, success, onChange, ...props}) => {
+const  Input: FC<InputProps> = ({id, disabled, label, inputValue, onChange, ...props}) => {
     return (
       <Wrapper>
-        <StyledInput required/>
+        <StyledInput required value={inputValue} onChange={onChange}/>
         <StyledLabel>{label}</StyledLabel>
       </Wrapper>
     );

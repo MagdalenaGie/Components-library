@@ -16,5 +16,6 @@ UserInfoExample.args = {
     name: "Adam",
     isSpectator: false,
     avatarId: 1
-  }
+  },
+  size: "small"
 };

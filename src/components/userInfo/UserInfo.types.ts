@@ -2,15 +2,15 @@ import { Player } from "../cards/PlayerCard/PlayerCard.types";
 
 export interface UserInfoProps {
     player: Player
+    size?: "small" | "medium" | "large",
+}
+
+export interface UserInfoElementsProps {
+    size?: "small" | "medium" | "large",
 }
 
 export interface UserCharacter {
     avatarId: number,
     characterName: string,
     characterImage: string,
-}
-
-export enum AvatarPrefixes {
-    face1 = "Wise Cat",
-    face2 = "Admiral"
 }

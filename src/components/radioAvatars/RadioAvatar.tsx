@@ -1,6 +1,8 @@
-import React from 'react'
-import styled from 'styled-components';
-import { UserCharacter, UserInfoElementsProps, UserInfoProps } from './UserInfo.types';
+import { FC } from 'react'
+import { AvatarBtnProps } from "./RadioAvatar.types"
+import styled, { css } from 'styled-components';
+import './styles.css'
+
 import cleopatra from './../../assets/avatars/cleopatra.png';
 import dwarf from './../../assets/avatars/dwarf.png';
 import elf from './../../assets/avatars/elf.png';
@@ -18,34 +20,47 @@ import warrior2 from './../../assets/avatars/warrior2.png';
 import witch from './../../assets/avatars/witch.png';
 import wizard from './../../assets/avatars/wizard.png';
 import wizard2 from './../../assets/avatars/wizard2.png';
+import { UserCharacter } from '../userInfo';
 
 
-const Avatar = styled.img<UserInfoElementsProps>`
+const Avatar = styled.img`
   border-radius: 100rem;
   border: 2px solid darkturquoise;
-  width: ${props => 
-    props.size === "small" ? "1rem" : (props.size === "medium" ? "2rem" : "2.5rem")};
-  height:  ${props => 
-    props.size === "small" ? "1rem" : (props.size === "medium" ? "2rem" : "2.5rem")};
+  width: 2.5rem;
+  height: 2.5rem;
 `;
 
 const Covered = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  justify-content: center; //not sure if this should be
-  padding: 4px;
+  justify-content: center;
+  padding: 8px;
 `;
 
-const PlayerName = styled.div<UserInfoElementsProps>`
+const PlayerName = styled.div`
   color: darkturquoise;
-  font-size: ${props => 
-    props.size === "small" ? "10px" : (props.size === "medium" ? "13px" : "16px")};
+  font-size: 14px;
   font-family: 'Montserrat';
   padding-left: 8px;
 `;
 
-const UserInfo: React.FC<UserInfoProps> = ({player, size, ...props}) => {
+const AvatarButton = styled.button<AvatarBtnProps>`
+  border: red;
+  background: transparent;
+  width: 100px;
+  height: 100px;
+  background: none;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 0px 0px 3px 0px rgb(172, 171, 169);
+  }
+  ${props => props.selected && css`
+  box-shadow: 0px 0px 3px 0px rgb(172, 171, 169);
+    `}
+`
+
+const  RadioAvatar: FC<AvatarBtnProps> = ({id, disabled, avatarId, selected, onClick, ...props}) => {
 
     const charactersMap = new Map<number, UserCharacter> ([
         [1, {avatarId: 1, characterName: 'Cleopatra', characterImage: cleopatra}],
@@ -67,14 +82,16 @@ const UserInfo: React.FC<UserInfoProps> = ({player, size, ...props}) => {
         [17, {avatarId: 17, characterName: 'Wizard2', characterImage: wizard2}],
     ]);
     
-    const character = charactersMap.get(player.avatarId);
+    const character = charactersMap.get(avatarId);
 
     return (
-        <Covered>
-            <Avatar src={character?.characterImage} alt={"User avatar"} size={size}/>
-            <PlayerName size={size}>{character?.characterName}<br/>{player.name}</PlayerName>
-        </Covered>
+        <AvatarButton id={avatarId.toString()} avatarId={avatarId} key={avatarId} selected={selected} onClick={onClick}>
+          <Covered>
+            <Avatar src={character?.characterImage} alt={"User avatar"}/>
+              <PlayerName>{character?.characterName}</PlayerName>
+            </Covered>
+        </AvatarButton>
     );
 }
 
-export default UserInfo;
+export default RadioAvatar;

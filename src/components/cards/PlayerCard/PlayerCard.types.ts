@@ -9,7 +9,12 @@ export interface PlayerCardProps {
     value?: number,
     selected: boolean,
     revealed: boolean,
-    player: Player
+    player: Player,
+    size?: "small" | "medium" | "large"
+}
+
+export interface StyledCardImageProps {
+    size?: "small" | "medium" | "large"
 }
 
 export interface StyledCardFaceProps {
